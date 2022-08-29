@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# Teachers Who Share App
+This captstone project was created by (Lauren Erxleben) [https://www.linkedin.com/in/lauren-erxleben/] at Flatiron School.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 
 ## Available Scripts
 
