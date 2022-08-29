@@ -19,13 +19,17 @@ This captstone project was created by [Lauren Erxleben](https://www.linkedin.com
 
 * Landing Page: A user lands on the site and logs into their existing account or creates a new account. The user will have authentication while they are logged in and when navigating the site; without having to sign in multiple times.
 
-* Search Filtering: A user will have a menu to filter their search based on the grade level they teach, the subject they are teaching, or by typing a query into the search bar that filters through the resources. The user can click on a resource to go to its detail page.
+* Search Filtering: A user will have a menu to filter their search based on the grade level they teach, the subject they are teaching, or by typing a query into the search bar that filters through the resources. 
 
-* Detail Page: A user can view all the criteria for the resource including title, ratings, previews of PDFs, grade level, subject and comments. The user will be able to save this resource to their profile page.
+* Detail Page: The user can click on a resource to go to its specific detail page. A user can view all the criteria for the resource including title, ratings, previews of PDFs, grade level, subject and comments. 
 
-* User Profile: A user will navigate to their personal profile page that lists their saved resources. This makes a POST request to the backend to display the data. They will have the option to click on a "share" button to share the linked resources to other teachers via social media. 
+* Saved Items: The user will be able to save a selected resource to their profile page. This makes a POST request to the backend that updates the user profile.
 
-* Resource Form: A user will be able to fill in a form to share an educational resource they have created to the site. This will make a POST request to the database and be shared publicly.
+* User Profile: A user will navigate to their personal profile page (clicking the icon in the navbar) that displays their saved resources. 
+
+* Share Function: A user will have the option to click on a "share" button to share the linked resources to other teachers via social media or email.
+
+* Resource Form: A user will be able to fill in a "Share a Resource" form to share an educational resource they have created to the site. This will make a POST request to the database and be added to the available resources. 
 
 ## Stretch Goals
 
