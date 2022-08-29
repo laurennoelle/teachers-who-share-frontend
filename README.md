@@ -1,7 +1,7 @@
 # Teachers Who Share App
 This is a web application designed for educators to share original educational materials or other educational resources they have found or created with each other. As a former teacher, the search for materials, activities and resources for my classroom was endless. This app is intended for teachers who have previously created great resources or discovered resources to share with other teachers that makes it easier to focus on what really matters and to save you precious time without having to reinvent the wheel. 
 
-This captstone project was created by (https://www.linkedin.com/in/lauren-erxleben) [Lauren Erxleben] at Flatiron School.
+This captstone project was created by (https://www.linkedin.com/in/lauren-erxleben)[Lauren Erxleben] at Flatiron School.
 
 ## User Stories
 
