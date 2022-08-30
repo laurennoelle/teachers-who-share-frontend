@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+
+import React, { useState } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import NavBar from './Components/NavBar';
+import Catalog from './Components/Catalog';
+import CreateResource from './Components/CreateResource';
+import SavedItems from './Components/SavedItems';
+import LandingPage from './Components/LandingPage';
 
 function App() {
+  const [page, setPage] = useState("/")
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar onChangePage={setPage}/>
+      <Switch>
+        <Route path="/catalog">
+          <Catalog />
+        </Route>
+        <Route path="/createresource">
+          <CreateResource />
+        </Route>
+        <Route path="/saveditems">
+          <SavedItems/>
+        </Route>
+        <Route exact path="/">
+          <LandingPage />
+        </Route>
+        <Route path="*">
+          <h1>404 Not Found</h1>
+        </Route>
+      </Switch>
     </div>
   );
 }
