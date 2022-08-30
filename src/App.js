@@ -12,8 +12,11 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar onChangePage={setPage}/>
       <Switch>
+        <Route exact path="/">
+          <LandingPage />
+        </Route>
+      <NavBar onChangePage={setPage}/>
         <Route path="/catalog">
           <Catalog />
         </Route>
@@ -22,9 +25,6 @@ function App() {
         </Route>
         <Route path="/saveditems">
           <SavedItems/>
-        </Route>
-        <Route exact path="/">
-          <LandingPage />
         </Route>
         <Route path="*">
           <h1>404 Not Found</h1>
