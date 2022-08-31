@@ -6,6 +6,7 @@ import Catalog from './Components/Catalog';
 import CreateResource from './Components/CreateResource';
 import SavedItems from './Components/SavedItems';
 import LandingPage from './Components/LandingPage';
+import Home from './Components/Home';
 
 function App() {
   const [page, setPage] = useState("/")
@@ -17,6 +18,9 @@ function App() {
           <LandingPage />
         </Route>
       <NavBar onChangePage={setPage}/>
+      <Route path="/home">
+          <Home />
+        </Route>
         <Route path="/catalog">
           <Catalog />
         </Route>
