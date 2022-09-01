@@ -8,7 +8,7 @@ import Button from './Button'
 const Links = [
   { name: 'Home', link: '/home', current: true },
   { name: 'Browse Catalog', link: '/catalog', current: false },
-  { name: 'Create a Resource', link: '/createresource', current: false },
+  { name: 'Share a Resource', link: '/shareresource', current: false },
   { name: 'Saved Items', link: '/saveditems', current: false },
 ]
 
@@ -18,14 +18,14 @@ function classNames(...classes) {
 
 export default function NavBar() {
   return (
-    <Disclosure position="sticky" as="nav" className="bg-gray-800" >
+    <Disclosure position="sticky" as="nav" className="bg-zinc-50" >
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-black hover:bg-gray-400 hover:text-black focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -38,12 +38,12 @@ export default function NavBar() {
                 <div className="flex flex-shrink-0 items-center">
                   <img
                     className="block h-8 w-auto lg:hidden"
-                    src="https://i.imgur.com/nXX6x00.png"
+                    src="https://i.imgur.com/keyyeIJ.png"
                     alt="Workflow"
                   />
                   <img
                     className="hidden h-8 w-auto lg:block"
-                    src="https://i.imgur.com/nXX6x00.png"
+                    src="https://i.imgur.com/keyyeIJ.png"
                     alt="Workflow"
                   />
                 </div>
@@ -54,7 +54,7 @@ export default function NavBar() {
                         key={Link.name}
                         href={Link.link}
                         className={classNames(
-                          Link.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                          Link.current ? 'bg-yellow-500 text-white' : 'text-gray-300 hover:bg-yellow-500 hover:text-white',
                           'px-3 py-2 rounded-md text-sm font-medium'
                         )}
                         aria-current={Link.current ? 'page' : undefined}

@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import NavBar from './Components/NavBar';
 import Catalog from './Components/Catalog';
@@ -8,30 +8,45 @@ import SavedItems from './Components/SavedItems';
 import LandingPage from './Components/LandingPage';
 import Home from './Components/Home';
 
+const API = ("http://localhost:3000/resources")
+
 function App() {
-  const [page, setPage] = useState("/")
+  // const [page, setPage] = useState("/")
+  const [resources, setResources] = useState([])
+
+  useEffect(() => {
+    fetch(API)
+    .then(res => res.json())
+    .then(setResources)
+  }, [])
 
   return (
     <div className="App">
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/login">
           <LandingPage />
         </Route>
-      <NavBar onChangePage={setPage}/>
-      <Route path="/home">
+        <Route path="/home">
+          <NavBar/>
           <Home />
         </Route>
         <Route path="/catalog">
-          <Catalog />
+        <NavBar />
+          <Catalog resources={resources}/>
         </Route>
-        <Route path="/createresource">
+        <Route path="/shareresource">
+          <NavBar/>
           <CreateResource />
         </Route>
         <Route path="/saveditems">
+          <NavBar/>
           <SavedItems/>
         </Route>
         <Route path="*">
           <h1>404 Not Found</h1>
+        </Route>
+        <Route path="/">
+          <Home/>
         </Route>
       </Switch>
     </div>
