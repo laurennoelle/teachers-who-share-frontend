@@ -77,6 +77,7 @@ function Home() {
     
           <main class="mx-auto mt-10 max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
             <div class="sm:text-center lg:text-left">
+              <img src="https://i.imgur.com/HbEPFw9.png" alt="logo" /><br></br>
               <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
                 <span class="block xl:inline">Online resources for</span>
                 <span class="block text-pink-700 xl:inline">busy teachers</span>

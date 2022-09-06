@@ -10,6 +10,7 @@ const Links = [
   { name: 'Browse Catalog', link: '/catalog', current: false },
   { name: 'Share a Resource', link: '/shareresource', current: false },
   { name: 'Saved Items', link: '/saveditems', current: false },
+  { name: 'Contact Us', link: '/contactus', current: false },
 ]
 
 function classNames(...classes) {

@@ -8,6 +8,7 @@ import SavedItems from './Components/SavedItems';
 import LandingPage from './Components/LandingPage';
 import Home from './Components/Home';
 import CardDetails from './Components/CardDetails';
+import Contact from './Components/Contact';
 
 const API = ("http://localhost:3000/resources")
 
@@ -45,6 +46,10 @@ function App() {
         <Route path="/saveditems">
           <NavBar/>
           <SavedItems/>
+        </Route>
+        <Route path="/contactus">
+          <NavBar/>
+          <Contact/>
         </Route>
         <Route path="*">
           <h1>404 Not Found</h1>

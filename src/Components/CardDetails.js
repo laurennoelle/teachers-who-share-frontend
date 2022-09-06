@@ -165,11 +165,11 @@ return (
         </div>
 
         <div class="mt-10">
-          {/* <h2 class="text-sm font-medium text-gray-900">Details</h2> */}
+          <h2 class="text-sm font-medium text-gray-900">Supplies Needed:</h2>
 
-          {/* <div class="mt-4 space-y-6">
-            <p class="text-sm text-gray-600">The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming &quot;Charcoal Gray&quot; limited release.</p>
-          </div> */}
+          <div class="mt-4 space-y-6">
+            <p class="text-sm text-gray-600">Click link for a list of supplemental supplies at Amazon</p><br></br>
+          </div>
           <div class="mt-3 sm:mt-0 sm:ml-3">
                   <a href="/catalog" class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-100 px-8 py-3 text-base font-medium text-indigo-700 hover:bg-indigo-200 md:py-4 md:px-10 md:text-lg">Back to Catalog</a>
                 </div>
