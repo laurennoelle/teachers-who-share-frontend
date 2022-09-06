@@ -23,7 +23,7 @@ function Catalog({resources}) {
 
   return (
     <div class="py-6 bg-white bg-auto">
-    <div className="grid grid-cols-3 gap-8 bg-white md:absolute md-20 w-250 mt-30 ml-50">
+    <div className="grid grid-cols-3 gap-10 bg-white md:absolute md-20 w-250 mt-30 ml-50">
         
        {renderResources}
        

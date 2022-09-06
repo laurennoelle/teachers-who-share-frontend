@@ -7,6 +7,7 @@ import CreateResource from './Components/CreateResource';
 import SavedItems from './Components/SavedItems';
 import LandingPage from './Components/LandingPage';
 import Home from './Components/Home';
+import CardDetails from './Components/CardDetails';
 
 const API = ("http://localhost:3000/resources")
 
@@ -33,6 +34,9 @@ function App() {
         <Route path="/catalog">
         <NavBar />
           <Catalog resources={resources}/>
+        </Route>
+        <Route exact path="/resources/:id">
+          <CardDetails />
         </Route>
         <Route path="/shareresource">
           <NavBar/>
