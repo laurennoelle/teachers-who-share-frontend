@@ -1,34 +1,36 @@
-import React from 'react'
-import CatalogCard from './CatalogCard'
-import { Grid } from '@mui/material'
+import React, {useState, useEffect} from 'react'
+import Search from './Search'
+import Footer from './Footer'
+import CatalogCollection from './CatalogCollection'
+import { Container } from 'semantic-ui-react'
 
 
+const API = ("http://localhost:3000/resources")
 
+function Catalog() {
+  const [resources, setResources] = useState([])
+  const [search, setSearch] = useState("")
 
-function Catalog({resources}) {
+  useEffect(() => {
+    fetch(API)
+    .then(res => res.json())
+    .then(setResources)
+  }, [])
 
-  const renderResources = resources.map((resource) =>{
-    return (
-      <CatalogCard 
-      key={resource.id} 
-      resource={resource}
-      // title={resource.title} 
-      // grade={resource.grade}
-      // subject={resource.subject}
-      // image={resource.image} 
-      />
-    )
-  })
+  function searchForResources(e) {
+    setSearch(e.target.value)
+  }
   
-
-  return (
-    <div class="py-6 bg-white bg-auto">
-    <div className="grid grid-cols-3 gap-10 bg-white md:absolute md-20 w-250 mt-30 ml-50">
-        
-       {renderResources}
-       
-       </div>
-       </div>
+  const searchedResources = resources.filter((r) => r.title.toLowerCase().includes(search.toLowerCase()) || r.subject.toLowerCase().includes(search.toLowerCase()))
+    
+    return (
+   <Container>
+      <Search search={search} searchForResources={searchForResources} />
+      <CatalogCollection resources={searchedResources}/>
+        {/* <section>
+          <Footer/>
+        </section> */}
+    </Container>
   )
 }
 

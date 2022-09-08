@@ -15,6 +15,7 @@ background-color: #fff;
 box-shadow: 0 0 2px rgba(15, 15, 15, 0.28);
 position: relative;
 overflow: hidden;
+
 `;
 
 const TopContainer = styled.div`

@@ -1,10 +1,12 @@
 import React from 'react'
+import Footer from './Footer'
 
-function Contact() {
+function About() {
   return (
     <div class="container my-24 px-6 mx-auto">
     <section className="mb-32 text-gray-800 text-center">
-        <h2 className="text-4xl font-bold mb-12">Contact Us</h2>
+        <h2 className="text-4xl font-bold mb-12">About the Creator</h2>
+        <p>Hello, my name is Lauren. As a former elementary teacher, I understand the need for great resources to use in the classroom that saves time and doesn't break the bank! I created this app to provide a common space to share resources with eachother, enjoy!</p><br></br>
         <div className="grid md:grid-cols-2 lg:grid-cols-1 gap-x-6 lg:gap-xl-12">
             <div className="mb-12 lg:mb-0">
                 <img className="rounded-lg shadow-lg mb-6 mx-auto" src="https://i.imgur.com/Y9lz9It.png" alt="avatar" style={{width: '300px'}} />
@@ -33,9 +35,10 @@ function Contact() {
              </div>
         </div>
     </section> 
+    
     </div>
 
   )
 }
 
-export default Contact
+export default About

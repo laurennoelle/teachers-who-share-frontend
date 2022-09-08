@@ -10,7 +10,7 @@ const Links = [
   { name: 'Browse Catalog', link: '/catalog', current: false },
   { name: 'Share a Resource', link: '/shareresource', current: false },
   { name: 'Saved Items', link: '/saveditems', current: false },
-  { name: 'Contact Us', link: '/contactus', current: false },
+  { name: 'About', link: '/about', current: false },
 ]
 
 function classNames(...classes) {
@@ -55,7 +55,7 @@ export default function NavBar() {
                         key={Link.name}
                         href={Link.link}
                         className={classNames(
-                          Link.current ? 'bg-yellow-500 text-white' : 'text-gray-300 hover:bg-yellow-500 hover:text-white',
+                          Link.current ? 'bg-yellow-500 text-white' : 'text-gray-500 hover:bg-yellow-500 hover:text-white',
                           'px-3 py-2 rounded-md text-sm font-medium'
                         )}
                         aria-current={Link.current ? 'page' : undefined}

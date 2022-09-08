@@ -4,6 +4,11 @@ import { useParams } from 'react-router-dom'
 function CardDetails() {
     const [details, setDetails] = useState([null])
     const [errors, setErrors] = useState([])
+    const [saved, setIsSaved] = useState([true])
+
+    function handleSaveClick() {
+        setIsSaved(!saved)
+    }
 
     const params = useParams()
  
@@ -56,7 +61,7 @@ return (
           <a href="#" aria-current="page" class="font-medium text-gray-500 hover:text-gray-600">{details.title}</a>
         </li>
       </ol>
-    </nav>
+    </nav> 
 
     {/* <!-- Image gallery --> */}
     <div class="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
@@ -75,6 +80,80 @@ return (
         <img src="https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg" alt="Model wearing plain white basic tee." class="h-full w-full object-cover object-center"/>
       </div>
     </div>
+    {/* <div id="carouselExampleCaptions" className="carousel slide relative" data-bs-ride="carousel">
+  <div className="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
+    <button
+      type="button"
+      data-bs-target="#carouselExampleCaptions"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleCaptions"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleCaptions"
+      data-bs-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+  </div>
+  <div className="carousel-inner relative w-full overflow-hidden">
+    <div className="carousel-item active relative float-left w-full">
+      <div className="relative overflow-hidden bg-no-repeat bg-cover" style={{backgroundPosition: "50%"}}>
+        <img src={details.image} className="block w-full" />
+        <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed bg-black opacity-50"></div>
+      </div>
+      <div className="carousel-caption hidden md:block absolute text-center">
+        <h5 className="text-xl">First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div className="carousel-item relative float-left w-full">
+      <div className="relative overflow-hidden bg-no-repeat bg-cover" style={{backgroundPosition: "50%"}}>
+        <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(124).jpg" className="block w-full" />
+        <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed bg-black opacity-50"></div>
+      </div>
+      <div className="carousel-caption hidden md:block absolute text-center">
+        <h5 className="text-xl">Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div className="carousel-item relative float-left w-full">
+      <div className="relative overflow-hidden bg-no-repeat bg-cover" style={{backgroundPosition: "50%"}}>
+        <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(125).jpg" className="block w-full" />
+        <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed bg-black opacity-50"></div>
+      </div>
+      <div className="carousel-caption hidden md:block absolute text-center">
+        <h5 className="text-xl">Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button
+    className="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
+    type="button"
+    data-bs-target="#carouselExampleCaptions"
+    data-bs-slide="prev"
+  >
+    <span className="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+    <span className="visually-hidden">Previous</span>
+  </button>
+  <button
+    className="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
+    type="button"
+    data-bs-target="#carouselExampleCaptions"
+    data-bs-slide="next"
+  >
+    <span className="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+    <span className="visually-hidden">Next</span>
+  </button>
+</div> */}
 
     {/* <!-- Product info --> */}
     <div class="mx-auto max-w-2xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
@@ -126,16 +205,16 @@ return (
           </div>
         </div>
 
-        <form class="mt-10">
-          
+        {/* <form class="mt-10">
+        type="submit"
 
-         
+        </form> */}
 
            
        
 
-          <button type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-pink-700 py-3 px-8 text-base font-[Poppins] text-white hover:bg-yellow-400 duration-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Save Resource</button>
-        </form>
+          <button  class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-pink-700 py-3 px-8 text-base font-[Poppins] text-white hover:bg-yellow-400 duration-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" onClick={handleSaveClick}>{saved ? "Save Resource" : "Saved ✅"}</button>
+        
       </div>
 
       <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pt-6 lg:pb-16 lg:pr-8">
@@ -172,7 +251,7 @@ return (
           </div>
           <div class="mt-3 sm:mt-0 sm:ml-3">
                   <a href="/catalog" class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-100 px-8 py-3 text-base font-medium text-indigo-700 hover:bg-indigo-200 md:py-4 md:px-10 md:text-lg">Back to Catalog</a>
-                </div>
+          </div>
         </div>
       </div>
     </div>
