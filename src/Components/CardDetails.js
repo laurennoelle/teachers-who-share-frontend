@@ -5,9 +5,14 @@ function CardDetails() {
     const [details, setDetails] = useState([null])
     const [errors, setErrors] = useState([])
     const [saved, setIsSaved] = useState([true])
+    const [download, setDownload] = useState([true])
 
     function handleSaveClick() {
         setIsSaved(!saved)
+    }
+
+    function handleDownloadClick() {
+        setDownload(!download)
     }
 
     const params = useParams()
@@ -70,14 +75,14 @@ return (
       </div>
       <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
         <div class="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
-          <img src="https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg" alt="Model wearing plain black basic tee." class="h-full w-full object-cover object-center"/>
+          <img src="https://i.imgur.com/NxMlIOB.jpg" alt="Model wearing plain black basic tee." class="h-full w-full object-cover object-center"/>
         </div>
-        <div class="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
-          <img src="https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg" alt="Model wearing plain gray basic tee." class="h-full w-full object-cover object-center"/>
-        </div>
+        {/* <div class="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
+          <img src="" alt="Model wearing plain gray basic tee." class="h-full w-full object-cover object-center"/>
+        </div> */}
       </div>
       <div class="aspect-w-4 aspect-h-5 sm:overflow-hidden sm:rounded-lg lg:aspect-w-3 lg:aspect-h-4">
-        <img src="https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg" alt="Model wearing plain white basic tee." class="h-full w-full object-cover object-center"/>
+        <img src="https://i.imgur.com/kfrqswW.jpg" alt="Model wearing plain white basic tee." class="h-full w-full object-auto object-center"/>
       </div>
     </div>
     {/* <div id="carouselExampleCaptions" className="carousel slide relative" data-bs-ride="carousel">
@@ -213,7 +218,8 @@ return (
            
        
 
-          <button  class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-pink-700 py-3 px-8 text-base font-[Poppins] text-white hover:bg-yellow-400 duration-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" onClick={handleSaveClick}>{saved ? "Save Resource" : "Saved ✅"}</button>
+          <button  class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-pink-700 py-3 px-8 text-base font-[Poppins] text-white hover:bg-pink-400 duration-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" onClick={handleSaveClick}>{saved ? "Save Resource" : "Saved ✔"}</button><br></br>
+          <button  class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-green-700 py-3 px-8 text-base font-[Poppins] text-white hover:bg-green-400 duration-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" onClick={handleDownloadClick}>{download ? "Download" : "Downloaded ✔"}</button>
         
       </div>
 
@@ -232,13 +238,13 @@ return (
 
           <div class="mt-4">
             <ul role="list" class="list-disc space-y-2 pl-4 text-sm">
-              <li class="text-gray-400"><span class="text-gray-600">Hand cut and sewn locally</span></li>
+              <li class="text-gray-400"><span class="text-gray-600">Differentiated activities</span></li>
 
-              <li class="text-gray-400"><span class="text-gray-600">Dyed with our proprietary colors</span></li>
+              <li class="text-gray-400"><span class="text-gray-600">Editable PDFs to customize</span></li>
 
-              <li class="text-gray-400"><span class="text-gray-600">Pre-washed &amp; pre-shrunk</span></li>
+              <li class="text-gray-400"><span class="text-gray-600">Fun &amp; engaging practice problems</span></li>
 
-              <li class="text-gray-400"><span class="text-gray-600">Ultra-soft 100% cotton</span></li>
+              <li class="text-gray-400"><span class="text-gray-600">Reusable templates</span></li>
             </ul>
           </div>
         </div>
@@ -247,7 +253,7 @@ return (
           <h2 class="text-sm font-medium text-gray-900">Supplies Needed:</h2>
 
           <div class="mt-4 space-y-6">
-            <p class="text-sm text-gray-600">Click link for a list of supplemental supplies at Amazon</p><br></br>
+            <p class="text-sm text-gray-600">Click link for a list of supplemental supplies at <b><a href="http://www.amazon.com" target="_blank">Amazon.com</a></b></p><br></br>
           </div>
           <div class="mt-3 sm:mt-0 sm:ml-3">
                   <a href="/catalog" class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-100 px-8 py-3 text-base font-medium text-indigo-700 hover:bg-indigo-200 md:py-4 md:px-10 md:text-lg">Back to Catalog</a>
