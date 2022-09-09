@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { Container } from 'semantic-ui-react';
 import SavedItemCard from './SavedItemCard';
 
 const APII = ("http://localhost:3000/saved_items")
 
 function SavedItems() {
  const [renderSavedItems, setRenderSavedItems] = useState([])
-
+ 
 
  useEffect(() => {
   fetch(APII)
@@ -14,11 +13,11 @@ function SavedItems() {
   .then(setRenderSavedItems)
  }, [])
 
-  const renderItems = renderSavedItems.map((item) => {
-      return (
-        <SavedItemCard key={item.id} item={item} />
-      )
-  })
+ function handleSavedItemsRender() {
+  fetch(APII)
+  .then(res => res.json())
+  .then(setRenderSavedItems)
+ }
 
   return (
     <div><br></br>
@@ -41,32 +40,20 @@ function SavedItems() {
 </div> 
 
 <div>
-  <div class="py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
+  <div class="py-7 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
     <div class="flex justify-start item-start space-y-2 flex-col">
       <h1 class="text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-gray-800">Your Saved Items</h1>
     </div>
   </div>
 </div> 
 
-<Container/>
-<div class="py-2 bg-white bg-auto">
-  <div className="grid grid-cols-6  gap-10 bg-white md:absolute md-20 w-250 mt-30 ml-50 px-6">
-    {renderItems}
-  </div>
- </div>
- <Container/>
-{/* 
-            
-                
-                
-            </div> 
-           
-        </div> */}
-        {/* <div class="py-6 bg-white bg-auto">
-            <div className="grid grid-cols-5 gap-10 bg-white md:absolute md-20 w-250 mt-30 ml-50 px-6">
-              {renderItems}
-              </div>
-        </div> */}
+<div className="bg-white mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8" >
+      <div className="grid grid-cols-4 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+          {renderSavedItems.map((item) => (
+            <SavedItemCard key={item.id} item={item} handleSavedItemsRender={handleSavedItemsRender}/>
+            ))}
+      </div>
+    </div>
   </div>
   )
 }
