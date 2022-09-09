@@ -2,16 +2,19 @@ import React from 'react'
 import Footer from './Footer'
 
 function About() {
-  return (
-    <div class="container my-24 px-6 mx-auto">
+  return ( 
+    <div  >
+    <div className="container my-20 px-6 mx-auto w-full h-full bg-no-repeat bg-cover "style={{backgroundImage: "url('https://i.imgur.com/x2BjUzB.png')"}} >
+        
     <section className="mb-32 text-gray-800 text-center">
-        <h2 className="text-4xl font-bold mb-12">About the Creator</h2>
-        <p>Hello, my name is Lauren. As a former elementary teacher, I understand the need for great resources to use in the classroom that saves time and doesn't break the bank! I created this app to provide a common space to share resources with eachother, enjoy!</p><br></br>
+        <h2 className="text-4xl font-bold mb-4">Lauren Erxleben</h2>
+        <h4 className="text-2xl font-bold mb-4">Full-Stack Developer</h4>
+        <p>Hello, my name is Lauren. As a former elementary teacher, I understand the need for great resources to use in the classroom that saves time and doesn't break the bank! I created this app to provide a common space for educators to share resources with eachother that they have either made or used in the classroom. I hope you find this useful, enjoy!</p><br></br>
         <div className="grid md:grid-cols-2 lg:grid-cols-1 gap-x-6 lg:gap-xl-12">
             <div className="mb-12 lg:mb-0">
                 <img className="rounded-lg shadow-lg mb-6 mx-auto" src="https://i.imgur.com/Y9lz9It.png" alt="avatar" style={{width: '300px'}} />
-                <h5 className="text-lg font-bold mb-4">Lauren Erxleben</h5>
-                <p className="mb-6">Full-Stack Developer</p>
+                {/* <h5 className="text-lg font-bold mb-4">Lauren Erxleben</h5>
+                <p className="mb-6">Full-Stack Developer</p> */}
                 <ul className="list-inside flex mx-auto justify-center">
                     <a href="https://github.com/laurennoelle" target="_blank" className="px-2">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" className="w-4 h-4 text-blue-600">
@@ -34,10 +37,10 @@ function About() {
                 </ul>
              </div>
         </div>
-    </section> 
+    </section> <br></br>
     
     </div>
-
+</div>
   )
 }
 

@@ -1,51 +1,72 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Container } from 'semantic-ui-react';
+import SavedItemCard from './SavedItemCard';
+
+const APII = ("http://localhost:3000/saved_items")
 
 function SavedItems() {
+ const [renderSavedItems, setRenderSavedItems] = useState([])
+
+
+ useEffect(() => {
+  fetch(APII)
+  .then(res => res.json())
+  .then(setRenderSavedItems)
+ }, [])
+
+  const renderItems = renderSavedItems.map((item) => {
+      return (
+        <SavedItemCard key={item.id} item={item} />
+      )
+  })
+
   return (
-    <div class="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
-    <div class="flex flex-1 justify-between sm:hidden">
-      <a href="#" class="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Previous</a>
-      <a href="#" class="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Next</a>
-    </div>
-    <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
-      <div>
-        <p class="text-sm text-gray-700">
-          Showing
-          <span class="font-medium">1</span>
-          to
-          <span class="font-medium">10</span>
-          of
-          <span class="font-medium">97</span>
-          results
-        </p>
+    <div><br></br>
+     
+ <div class="bg-gray-50">
+  <div class="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-16 lg:px-8">
+    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+      <span class="block">Love these resources?</span>
+      <span class="block text-indigo-600">Add a review to help your fellow teachers!</span>
+    </h2>
+    <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+      <div class="inline-flex rounded-md shadow">
+        <a href="#" class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-5 py-3 text-base font-medium text-white hover:bg-indigo-700">Get started</a>
       </div>
-      <div>
-        <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
-          <a href="#" class="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20">
-            <span class="sr-only">Previous</span>
-            {/* <!-- Heroicon name: mini/chevron-left --> */}
-            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
-            </svg>
-          </a>
-          {/* <!-- Current: "z-10 bg-indigo-50 border-indigo-500 text-indigo-600", Default: "bg-white border-gray-300 text-gray-500 hover:bg-gray-50" --> */}
-          <a href="#" aria-current="page" class="relative z-10 inline-flex items-center border border-indigo-500 bg-indigo-50 px-4 py-2 text-sm font-medium text-indigo-600 focus:z-20">1</a>
-          <a href="#" class="relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20">2</a>
-          <a href="#" class="relative hidden items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20 md:inline-flex">3</a>
-          <span class="relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700">...</span>
-          <a href="#" class="relative hidden items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20 md:inline-flex">8</a>
-          <a href="#" class="relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20">9</a>
-          <a href="#" class="relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20">10</a>
-          <a href="#" class="relative inline-flex items-center rounded-r-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20">
-            <span class="sr-only">Next</span>
-            {/* <!-- Heroicon name: mini/chevron-right --> */}
-            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
-            </svg>
-          </a>
-        </nav>
+      <div class="ml-3 inline-flex rounded-md shadow">
+        <a href="#" class="inline-flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-indigo-600 hover:bg-indigo-50">Learn more</a>
       </div>
     </div>
+  </div>
+</div> 
+
+<div>
+  <div class="py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
+    <div class="flex justify-start item-start space-y-2 flex-col">
+      <h1 class="text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-gray-800">Your Saved Items</h1>
+    </div>
+  </div>
+</div> 
+
+<Container/>
+<div class="py-2 bg-white bg-auto">
+  <div className="grid grid-cols-6  gap-10 bg-white md:absolute md-20 w-250 mt-30 ml-50 px-6">
+    {renderItems}
+  </div>
+ </div>
+ <Container/>
+{/* 
+            
+                
+                
+            </div> 
+           
+        </div> */}
+        {/* <div class="py-6 bg-white bg-auto">
+            <div className="grid grid-cols-5 gap-10 bg-white md:absolute md-20 w-250 mt-30 ml-50 px-6">
+              {renderItems}
+              </div>
+        </div> */}
   </div>
   )
 }

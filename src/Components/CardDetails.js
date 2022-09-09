@@ -4,13 +4,29 @@ import { useParams } from 'react-router-dom'
 function CardDetails() {
     const [details, setDetails] = useState([null])
     const [errors, setErrors] = useState([])
-    const [saved, setIsSaved] = useState([true])
-    const [download, setDownload] = useState([true])
+    const [saved, setIsSaved] = useState(false)
+    const [download, setDownload] = useState(true)
 
     function handleSaveClick() {
         setIsSaved(!saved)
+        if (!saved) {
+            fetch(`/saved_items`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    title: details.title,
+                    subject: details.subject,
+                    grade: details.grade,
+                    description: details.description,
+                    reviews: details.reviews,
+                    image: details.image,
+                }),
+            }).then(r => r.json()).then((data) => console.log(data))
+        } 
     }
-
+console.log(details)
     function handleDownloadClick() {
         setDownload(!download)
     }
@@ -39,6 +55,10 @@ function CardDetails() {
         )
     }
     
+    // function handlePostSavedItems() {
+        
+    // }
+
 return (
     <div class="bg-white">
   <div class="pt-6">
@@ -218,7 +238,7 @@ return (
            
        
 
-          <button  class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-pink-700 py-3 px-8 text-base font-[Poppins] text-white hover:bg-pink-400 duration-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" onClick={handleSaveClick}>{saved ? "Save Resource" : "Saved ✔"}</button><br></br>
+          <button  class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-pink-700 py-3 px-8 text-base font-[Poppins] text-white hover:bg-pink-400 duration-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"  onClick={handleSaveClick}>{saved ? "Saved ✔" : "Save Resource"}</button><br></br>
           <button  class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-green-700 py-3 px-8 text-base font-[Poppins] text-white hover:bg-green-400 duration-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" onClick={handleDownloadClick}>{download ? "Download" : "Downloaded ✔"}</button>
         
       </div>

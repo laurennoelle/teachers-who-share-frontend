@@ -17,6 +17,11 @@ function Catalog() {
     .then(setResources)
   }, [])
 
+  function addNewResource(resource) {
+    const oneMoreResource = [...resources, resource]
+    setResources(oneMoreResource)
+  }
+
   function searchForResources(e) {
     setSearch(e.target.value)
   }
