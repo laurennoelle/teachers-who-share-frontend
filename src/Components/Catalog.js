@@ -5,22 +5,26 @@ import CatalogCollection from './CatalogCollection'
 import { Container } from 'semantic-ui-react'
 
 
-const API = ("http://localhost:3000/resources")
+// const API = ("http://localhost:3000/resources")
 
-function Catalog() {
-  const [resources, setResources] = useState([])
+function Catalog({resources}) {
+  // const [resources, setResources] = useState([])
   const [search, setSearch] = useState("")
 
-  useEffect(() => {
-    fetch(API)
-    .then(res => res.json())
-    .then(setResources)
-  }, [])
+  // useEffect(() => {
+  //   fetch(API)
+  //   .then(res => res.json())
+  //   .then(setResources)
+  // }, [])
 
-  function addNewResource(resource) {
-    const oneMoreResource = [...resources, resource]
-    setResources(oneMoreResource)
-  }
+  // function addResource(resource) {
+  //   const oneMoreResource = [...resources, resource]
+  //   setResources(oneMoreResource)
+  // }
+
+  // const addResource = (newResource) => {
+  //   setResources((resourceObj) => [...resourceObj, newResource])
+  // }
 
   function searchForResources(e) {
     setSearch(e.target.value)

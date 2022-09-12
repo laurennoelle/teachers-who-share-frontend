@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Switch, Route } from 'react-router-dom';
 import NavBar from './Components/NavBar';
 import Catalog from './Components/Catalog';
@@ -11,11 +11,18 @@ import CardDetails from './Components/CardDetails';
 import About from './Components/About';
 import Footer from './Components/Footer';
 
-
+const API = ("http://localhost:3000/resources")
 
 
 function App() {
   // const [page, setPage] = useState("/")
+  const [resources, setResources] = useState([])
+
+  useEffect(() => {
+    fetch(API)
+    .then(res => res.json())
+    .then(setResources)
+  }, [])
 
   return (
     <div className="App">
@@ -30,7 +37,7 @@ function App() {
         </Route>
         <Route path="/catalog">
         <NavBar />
-          <Catalog />
+          <Catalog resources={resources}/>
           {/* <Footer /> */}
         </Route>
         <Route exact path="/resources/:id">
