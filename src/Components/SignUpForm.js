@@ -47,9 +47,9 @@ export function SignUpForm() {
   return (
     <BoxContainer>
       <FormContainer >
-        <Input type="text"   name='username' placeholder="Username" value={username} onChange={handleChange}/>
-        <Input type="text" name='email' placeholder="Email" value={email} onChange={handleChange} />
-        <Input type="password" name="password" placeholder="Password" value={password} onChange={handleChange} />
+        <Input type="text"   name='username' placeholder="Username" value="" onChange={handleChange}/>
+        <Input type="text" name='email' placeholder="Email" value="" onChange={handleChange} />
+        <Input type="password" name="password" placeholder="Password" value="" onChange={handleChange} />
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
       <SubmitButton onSubmit={onSubmit} type="submit">Signup</SubmitButton>

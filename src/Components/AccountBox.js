@@ -127,6 +127,7 @@ function AccountBox() {
 
   return (
     <AccountContext.Provider value={contextValue}>
+      <img src="https://i.imgur.com/HbEPFw9.png"/>
     <BoxContainer>
         <TopContainer>
             <BackDrop initial={false}

@@ -9,9 +9,9 @@ function CreateResource() {
  const [description, setDescription] = useState("");
  const [image, setImage] = useState("");
  const [reviews, setReviews] = useState("");
- 
+//  const [shared, setShared] = useState(true);
 
-//  let navigate = useHistory()
+ const history = useHistory();
 
 //  const handleOnChange = (e) => {
 //   const {name, value} = e.target
@@ -20,27 +20,35 @@ function CreateResource() {
 
  const handleSubmit = (e) => {
   e.preventDefault()
-  fetch("http://localhost:3000/resources", {
+  fetch('/resources', {
     method: "POST",
     headers: {
       "Content-Type" : "application/json",
     },
     body: JSON.stringify({
-      title: title, 
-      subject: subject,
-      grade: grade,
-      description: description,
-      image: image,
-      reviews: reviews,
+     title, 
+     subject,
+     grade,
+     description,
+     image,
+     reviews,
     }),
-  })
-  .then((res) => res.json())
-  .then((data) => console.log(data))
-  // .then(navigate('/catalog'))
+  }).then((res) => res.json()).then((data) => {
 
-  console.log('form sent')
+    history.push('/catalog')
+    console.log(data)
+  });
+  // .then((res) => console.log(res)).then(history.push('/catalog'))
+  // .then((res) => res.json())
+  // .then((data) => console.log(data))
+  
+  // console.log('form sent')
+  // navigate('/catalog')
  };
 
+//  function handleSharedClick() {
+//   setShared(!shared)
+//  }
   return (
     <div>
     <div class="relative overflow-hidden bg-white">
@@ -103,7 +111,7 @@ function CreateResource() {
                   <button type="checkbox" class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain mr-2 cursor-pointer" id="exampleCheck87" checked/>
                   <label class="form-check-label inline-block text-gray-800" for="exampleCheck87">I give permission to share this resource</label>
                 </div> */}
-                <button type="submit" class="w-full px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Share</button>
+                <button type="submit" class="w-full px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" >Share</button>
               </form>
             </div>
             </div>
