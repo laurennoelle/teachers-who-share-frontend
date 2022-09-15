@@ -25,3 +25,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+nav a.active {
+  text-decoration: none;
+  background-color: #e2b504;
+  color: white
+}
+

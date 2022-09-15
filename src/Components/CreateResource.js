@@ -9,9 +9,9 @@ function CreateResource() {
  const [description, setDescription] = useState("");
  const [image, setImage] = useState("");
  const [reviews, setReviews] = useState("");
-//  const [shared, setShared] = useState(true);
+ const [shared, setShared] = useState(true);
 
- const history = useHistory();
+ let history = useHistory();
 
 //  const handleOnChange = (e) => {
 //   const {name, value} = e.target
@@ -35,7 +35,6 @@ function CreateResource() {
     }),
   }).then((res) => res.json()).then((data) => {
 
-    history.push('/catalog')
     console.log(data)
   });
   // .then((res) => console.log(res)).then(history.push('/catalog'))
@@ -44,11 +43,12 @@ function CreateResource() {
   
   // console.log('form sent')
   // navigate('/catalog')
- };
+};
 
-//  function handleSharedClick() {
-//   setShared(!shared)
-//  }
+function handleSharedClick() {
+  setShared(!shared)
+  history.push('/catalog')
+ }
   return (
     <div>
     <div class="relative overflow-hidden bg-white">
@@ -111,8 +111,11 @@ function CreateResource() {
                   <button type="checkbox" class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain mr-2 cursor-pointer" id="exampleCheck87" checked/>
                   <label class="form-check-label inline-block text-gray-800" for="exampleCheck87">I give permission to share this resource</label>
                 </div> */}
-                <button type="submit" class="w-full px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" >Share</button>
+                <button type="submit" class="w-full px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" onClick={handleSharedClick}>{shared ? "Share" : "Shared ✔"}</button>
               </form>
+      <div class="mt-3 sm:mt-0 sm:ml-3">
+                  <a href="/catalog" class="flex w-full items-center justify-center rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-indigo-700 hover:bg-zinc-200 md:py-4 md:px-10 md:text-lg">Back to Catalog</a>
+          </div>
             </div>
             </div>
           </main>

@@ -1,21 +1,20 @@
 /* This example requires Tailwind CSS v2.0+ */
 
 import { Disclosure} from '@headlessui/react'
-// import { NavLink } from 'react-router-dom'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Button from './Button'
 
-// const Links = [
-//   { name: 'Home', link: '/home', current: true},
-//   { name: 'Browse Catalog', link: '/catalog' },
-//   { name: 'Share a Resource', link: '/shareresource'},
-//   { name: 'Saved Items', link: '/saveditems'},
-//   { name: 'About', link: '/about'}
-// ]
+const Links = [
+  { name: 'Home', link: '/home'},
+  { name: 'Browse Catalog', link: '/catalog' },
+  { name: 'Share a Resource', link: '/shareresource'},
+  { name: 'Saved Items', link: '/saveditems'},
+  { name: 'About', link: '/about'}
+]
 
-// function classNames(...classes) {
-//   return classes.filter(Boolean).join(' ')
-// }
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
 
 export default function NavBar() {
   return (
@@ -31,19 +30,13 @@ export default function NavBar() {
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
-                    <a href="/home" className='text-grey-500 hover:bg-yellow-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium'>Home</a>
-                    <a href="/catalog" className='text-grey-500 hover:bg-yellow-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium'>Browse Catalog</a>
-                    <a href="/shareresource" className='text-grey-500 hover:bg-yellow-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium'>Share a Resource</a>
-                    <a href="/saveditems" className='text-grey-500 hover:bg-yellow-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium'>Saved Items</a>
-                    <a href="/about" className='text-grey-500 hover:bg-yellow-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium'>About</a>
-                   
-                    {/* {Links.map((Link) => (
+                    {Links.map((Link) => (
                       <a key={Link.name} href={Link.link} className={classNames(
                           Link.current ? 'bg-yellow-500 text-white' : 'text-gray-500 hover:bg-yellow-500 hover:text-white',
                           'px-3 py-2 rounded-md text-sm font-medium'
                         )}
                         aria-current={Link.current ? 'page' : undefined}> {Link.name} </a>
-                    ))} */}
+                    ))}
                   </div>
                 </div>
               </div>

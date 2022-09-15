@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route exact path="/login">
+        <Route path="/login">
           <LandingPage />
         </Route>
         <Route path="/home">
@@ -59,12 +59,12 @@ function App() {
           <About/>
           <Footer />
         </Route>
-        <Route path="*">
+        {/* <Route path="*">
           <h1>404 Not Found</h1>
         </Route>
         <Route path="/">
           <Home/>
-        </Route>
+        </Route> */}
       </Switch>
     </div>
   );
