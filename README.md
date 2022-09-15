@@ -3,7 +3,7 @@ This is a web application designed for educators to share original educational m
 
 This captstone project was created by [Lauren Erxleben](https://www.linkedin.com/in/lauren-erxleben) at Flatiron School.
 
-Liink for the backend repo here: [https://github.com/laurennoelle/teachers-who-share-backend](https://github.com/laurennoelle/teachers-who-share-backend)
+Backend repo here: [Teachers Who Share - Backend Repo](https://github.com/laurennoelle/teachers-who-share-backend)
 
 ## User Stories
 
